@@ -1,0 +1,5 @@
+@import "compass";
+
+.testing{
+  @include single-box-shadow;
+}

@@ -1,0 +1,8 @@
+development:
+  protocol: 'http'
+  host: localhost
+  port: 443
+  prefix: dev
+  suffix: blog
+  username: matthewgilk2012
+  password: boblaslawblog69
