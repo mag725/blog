@@ -1,5 +1,114 @@
 @import "compass";
+@import "compass/reset";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300|Sanchez);
 
-.testing{
-  @include single-box-shadow;
+/*
+  main components
+*/
+
+$light-grey: #efefef;
+$default-corner-radius: 8px;
+$m-green: #66CCFF;
+$m-green-light: #44bbFF;
+$dark-grey: #555;
+$main-content-width: 1000px;
+$header-color: orange;
+
+@mixin josefin-slab-medium{
+  font-size: 22px;
+  font-family: "Open Sans", serif;
+}
+
+@mixin sanchez-large{
+  font-size: 42px;
+  font-family: 'Sanchez', serif;
+}
+
+@mixin hover-shadow{
+  border-width:0 2px 2px 0;
+  border-style:solid;
+  border-color:$dark-grey;
+}
+
+@mixin rounded-corner{
+  @include border-radius($default-corner-radius,$default-corner-radius);
+}
+
+.clearfix{
+  clear:both;
+}
+
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+html{
+  height:100%;
+}
+
+body{
+  height:100%;
+  background-color:$light-grey;
+}
+
+.container{
+  background-color:$m-green-light;
+  margin-left:150px;
+  bottom:0;
+  height:100%;
+  width: $main-content-width;
+  padding:.5em;
+}
+
+.header{
+  color:$light-grey;
+  @include sanchez-large;
+  @include border-radius(3px, 3px);
+  margin-bottom: 10px;
+}
+
+.content{
+  @include josefin-slab-medium;
+  line-height: 34px;
+}
+
+.section{
+  margin: 10px 0 20px 0;
+}
+
+/*
+  bio section
+*/
+.bio{
+  img.profile-pic{
+    @include rounded-corner;
+    @include hover-shadow;
+    height:90px;
+    width:90px;
+  }
+  .quotation{
+    @include rounded-corner;
+    @include hover-shadow;
+    @include border-bottom-right-radius($default-corner-radius);
+    color: $dark-grey;
+    padding:5px 0 0 5px;
+    background:$light-grey;
+    width:880px;
+    float:right;  
+  }
+  .arrow-left{
+    float:left;
+    position:relative;
+    left:103px;
+    top:13px;
+    width:0;
+    height:0;
+   	border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent; 
+    border-right:10px solid $light-grey; 
+  }
 }
