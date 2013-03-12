@@ -24,48 +24,29 @@ $header-color: orange;
   font-family: 'Sanchez', serif;
 }
 
-@mixin hover-shadow{
-  border-width:0 2px 2px 0;
-  border-style:solid;
-  border-color:$dark-grey;
-}
-
-@mixin rounded-corner{
-  @include border-radius($default-corner-radius,$default-corner-radius);
-}
-
 .clearfix{
   clear:both;
 }
 
-html[xmlns] .clearfix {
-	display: block;
-}
- 
-* html .clearfix {
-	height: 1%;
-}
-
 html{
   height:100%;
+  width:100%;
+  background-image:url("debut_dark.png");
 }
 
 body{
   height:100%;
-  background-color:$light-grey;
+  width:100%;
 }
 
 .container{
-  background-color:$m-green-light;
-  margin-left:150px;
   bottom:0;
   height:100%;
-  width: $main-content-width;
+  width:100%;
   padding:.5em;
 }
 
 .header{
-  color:$light-grey;
   @include sanchez-large;
   @include border-radius(3px, 3px);
   margin-bottom: 10px;
@@ -77,38 +58,33 @@ body{
 }
 
 .section{
-  margin: 10px 0 20px 0;
+  margin:50px 20% 50px 20%;
 }
 
 /*
   bio section
 */
 .bio{
+
   img.profile-pic{
-    @include rounded-corner;
-    @include hover-shadow;
+    @include border-radius(45px);
     height:90px;
     width:90px;
   }
   .quotation{
-    @include rounded-corner;
-    @include hover-shadow;
-    @include border-bottom-right-radius($default-corner-radius);
     color: $dark-grey;
-    padding:5px 0 0 5px;
-    background:$light-grey;
-    width:880px;
-    float:right;  
+    text-align: justify;
+    padding:5px 10px;
+    background:white;
+    @include border-radius(3px);
   }
-  .arrow-left{
-    float:left;
-    position:relative;
-    left:103px;
-    top:13px;
-    width:0;
-    height:0;
-   	border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent; 
-    border-right:10px solid $light-grey; 
+  .arrow-up {
+    width: 0; 
+    height: 0;
+    margin-left:35px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    
+    border-bottom: 10px solid white;
   }
 }
