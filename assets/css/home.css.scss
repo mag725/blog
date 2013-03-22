@@ -12,7 +12,9 @@ $m-green: #66CCFF;
 $m-green-light: #44bbFF;
 $dark-grey: #555;
 $main-content-width: 1000px;
-$header-color: orange;
+$trail-segment-width: 10px;
+$trail-segment-length: 10px;
+$trail-segment-border-radius: 5px; 
 
 @mixin josefin-slab-medium{
   font-size: 22px;
@@ -24,14 +26,32 @@ $header-color: orange;
   font-family: 'Sanchez', serif;
 }
 
-.clearfix{
-  clear:both;
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
 }
 
 html{
   height:100%;
   width:100%;
-  background-image:url("debut_dark.png");
+  background-size: 25%;
+  background-color: $dark-grey;
 }
 
 body{
@@ -42,8 +62,8 @@ body{
 .container{
   bottom:0;
   height:100%;
-  width:100%;
-  padding:.5em;
+  width:80%;
+  margin-left:10%;
 }
 
 .header{
@@ -58,14 +78,44 @@ body{
 }
 
 .section{
-  margin:50px 20% 50px 20%;
+  width:100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
+
+.trail{
+  float:right;
+  position: relative;
+  width: 100%;
+  .first{
+    width:100%;
+  }
+  .second{
+  }
+
+  .segment{
+    background-color:$m-green;
+    height: $trail-segment-width;
+    width: $trail-segment-length;
+    @include border-radius($trail-segment-border-radius);
+    &.horizontal{
+      float: left;
+      margin-left:10%; 
+      &.first{
+        margin-left: 0;
+      }   
+    }
+    &.vertical{
+      margin-top: 40px;
+    }
+  }
+}
+
 
 /*
   bio section
 */
 .bio{
-
   img.profile-pic{
     @include border-radius(45px);
     height:90px;
@@ -77,14 +127,15 @@ body{
     padding:5px 10px;
     background:white;
     @include border-radius(3px);
+    opacity: .85;
   }
   .arrow-up {
+    opacity: .85;
     width: 0; 
     height: 0;
     margin-left:35px;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    
     border-bottom: 10px solid white;
   }
 }
